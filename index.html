@@ -1,0 +1,153 @@
+# Myman_-birthday-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mohamed ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --burgundy: #4a0404;
+        --cream: #fdf5e6;
+        --gold: #d4af37;
+        --soft-pink: #f4dada;
+    }
+
+    body, html {
+        margin: 0; padding: 0; width: 100%; height: 100%;
+        overflow: hidden; font-family: 'Playfair Display', serif;
+        background: var(--cream);
+    }
+
+    /* خلفية كلاسيكية فخمة بلمسات وردية وقلوب وبجعة */
+    .classic-bg {
+        background-color: var(--cream);
+        background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+    }
+
+    .swan-icon {
+        position: absolute; bottom: 20px; right: 20px; font-size: 50px; opacity: 0.6; filter: sepia(0.5);
+    }
+
+    .screen {
+        position: absolute; width: 100%; height: 100%;
+        display: none; justify-content: center; align-items: center;
+        flex-direction: column; text-align: center;
+    }
+
+    .active { display: flex; animation: fadeIn 1s forwards; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Anime Girl Avatar */
+    .anime-container {
+        width: 180px; height: 180px; border-radius: 50%;
+        border: 3px solid var(--gold); overflow: hidden;
+        background: white; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .anime-girl {
+        width: 100%; height: 100%;
+        background: url('https://api.dicebear.com/7.x/avataaars/svg?seed=Mimi&top=longHair&topProbability=100&hairColor=brown&clothes=overall&clothColor=ea94bb&eyes=squint&mouth=smile') center/cover;
+    }
+
+    .btn-ready {
+        padding: 12px 35px; background: var(--burgundy); color: var(--cream);
+        border-radius: 5px; cursor: pointer; font-family: 'Poppins', sans-serif;
+        border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;
+    }
+
+    /* Final Message Card */
+    .final-card {
+        width: 85%; max-width: 450px; background: rgba(255, 255, 255, 0.9);
+        color: var(--burgundy); padding: 40px 30px; border-radius: 2px;
+        border: 1px solid var(--gold); box-shadow: 0 0 30px rgba(0,0,0,0.05);
+        position: relative; overflow-y: auto; max-height: 80vh;
+    }
+
+    .closing-note {
+        margin-top: 30px; font-style: italic; color: #8b0000;
+        font-weight: bold; border-top: 1px solid var(--gold); padding-top: 15px;
+    }
+
+    .heart-float { position: absolute; color: var(--soft-pink); animation: floatUp 6s linear infinite; pointer-events: none; opacity: 0.7; }
+    @keyframes floatUp { from { transform: translateY(100vh) rotate(0deg); } to { transform: translateY(-10vh) rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="classic-bg"></div>
+<div class="swan-icon">🦢</div>
+
+<audio id="bgMusic" loop>
+    <source src="https://www.mboxdrive.com/A%20Thousand%20Years.mp3" type="audio/mpeg">
+</audio>
+
+<div id="s1" class="screen active">
+    <div style="font-size: 80px; cursor: pointer; animation: pulse 1.5s infinite;" onclick="startExperience()">❤️</div>
+    <p style="color: var(--burgundy); font-style: italic; margin-top: 20px;">Tap to unlock the magic</p>
+</div>
+
+<div id="s2" class="screen">
+    <div id="countdown" style="font-size: 100px; color: var(--burgundy); font-weight: bold;">3</div>
+</div>
+
+<div id="s3" class="screen">
+    <div class="anime-container"><div class="anime-girl"></div></div>
+    <button class="btn-ready" onclick="next(4)">Ready, Mohamed? 💖</button>
+</div>
+
+<div id="s4" class="screen">
+    <div class="final-card">
+        <h1 style="font-size: 24px; letter-spacing: 2px; text-transform: uppercase;">For My Mohamed</h1>
+        <div style="text-align: left; font-family: 'Poppins'; line-height: 1.8; font-size: 14px;">
+            To my man, my home, and my everything...<br><br>
+            I love you more than words can express. Every mile between us only makes my heart grow fonder, though I hate the distance with all my soul. You are the only one I could ever choose, over and over again.<br><br>
+            I’ll always be your biggest supporter, standing by you and waiting for you, no matter what. You are my warmth and my safety.<br><br>
+            I can’t wait for the day we finally celebrate together, side by side, until we grow old.<br><br>
+            
+            <div class="closing-note">
+                I love you forever my baby.<br>
+                I wish you a happy life and to be my husband soon. ❤️
+            </div>
+        </div>
+        
+        <div style="margin-top: 20px; font-size: 12px; opacity: 0.7;">
+            Tripoli 🇱🇾 ——— ✈️ ——— Hebron 🇵🇸
+        </div>
+    </div>
+</div>
+
+<script>
+    function next(n) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById('s' + n).classList.add('active');
+    }
+
+    function startExperience() {
+        let music = document.getElementById('bgMusic');
+        music.play();
+        next(2);
+        let count = 3;
+        let timer = setInterval(() => {
+            count--;
+            if (count > 0) document.getElementById('countdown').innerText = count;
+            else { clearInterval(timer); next(3); }
+        }, 1000);
+
+        // إضافة قلوب تطير في الخلفية باستمرار
+        setInterval(() => {
+            let h = document.createElement('div');
+            h.className = 'heart-float';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            h.innerHTML = Math.random() > 0.5 ? '❤️' : '🌸';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 6000);
+        }, 500);
+    }
+</script>
+
+</body>
+</html>
